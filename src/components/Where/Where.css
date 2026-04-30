@@ -1,0 +1,125 @@
+.where {
+    padding: 80px 20px;
+    background: #fff;
+}
+
+.where__container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.where__title {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+/* FLEX */
+.where__content {
+    display: flex;
+    gap: 30px;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+/* карта */
+.where__map {
+    flex: 2;
+    width: 90%;
+    height: 500px;
+    display: flex;
+    margin: 0 auto !important;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* инфо */
+.where__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: #fafafa;
+    padding: 30px;
+    border-radius: 16px;
+    /* border: 1px solid #eee; */
+}
+
+.where__info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.where__info p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* кнопка */
+.where__btn {
+    display: inline-block;
+    text-align: center;
+
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+
+    background: #000;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.where__btn:hover {
+    background: #333;
+}
+
+.where {
+    padding-top: 80px;
+    background: #fff;
+}
+
+/* заголовок */
+.where__title {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
+
+    font-size: 32px;
+    color: #222;
+}
+
+/* блок под картой */
+.where__info {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.where__info p {
+    color: #555;
+    font-size: 16px;
+}
+
+/* кнопка */
+.where__btn {
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+
+    background: #000;
+    color: #fff;
+
+    transition: 0.2s;
+}
+
+.where__btn:hover {
+    background: #333;
+}

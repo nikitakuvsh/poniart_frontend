@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles.css';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Header from "./components/Header/Header";
+import About from './components/About/About';
+import Events from './components/Events/Events';
+import Subscribes from './components/Subscribes/Subscribes';
+import Where from './components/Where/Where';
+import Event from './components/Event/Event';
+import AboutSubscribe from './components/AboutSubscribe/AboutSubscribe';
+
+import ScrollHandler from './scrollHandler';
+
+function Home() {
+  return (
+    <>
+      <About />
+      <Events />
+      <Subscribes />
+      <Where />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <ScrollHandler />
+    <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/event/:id" element={<Event />} />
+        <Route path="/about-subscribe" element={<AboutSubscribe />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

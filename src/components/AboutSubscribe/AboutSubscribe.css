@@ -1,0 +1,75 @@
+.about-subscribe {
+    min-height: 100vh;
+    background: #f7f7f8;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    font-family: "Inter", sans-serif;
+    color: #1c1c1e;
+}
+
+/* документ */
+.document {
+    max-width: 800px;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #e7e7ea;
+    border-radius: 14px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+/* header */
+.document__header {
+    margin-bottom: 30px;
+}
+
+.document__header h1 {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+}
+
+.document__subtitle {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* блоки */
+.document__block {
+    margin-bottom: 24px;
+}
+
+.document__block h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #111;
+}
+
+.document__block p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* id */
+.doc-id {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: #f2f3f5;
+    border: 1px solid #e3e4e8;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+/* footer */
+.document__footer {
+    margin-top: 30px;
+    padding-top: 16px;
+    border-top: 1px solid #ececf1;
+    font-size: 13px;
+    color: #666;
+}

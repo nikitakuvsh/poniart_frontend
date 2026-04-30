@@ -1,0 +1,86 @@
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    z-index: 1000;
+
+    transition: all 0.25s ease;
+}
+
+/* состояние ДО скролла */
+.header__content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: all 0.25s ease;
+}
+
+/* 🔥 СКРОЛЛ */
+.header--scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.header--scrolled .header__content {
+    padding: 10px 20px;
+}
+
+/* логотип */
+.header__logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.header--scrolled .header__logo {
+    transform: scale(0.95);
+}
+
+/* nav */
+.header__nav {
+    display: flex;
+    gap: 24px;
+}
+
+.header__nav a,
+.header__nav a:visited {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.header__nav a:hover {
+    color: #000;
+    transform: translateY(-1px);
+}
+
+/* кнопка */
+.header__btn {
+    padding: 8px 16px;
+    font-size: 14px;
+
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.header__btn:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}

@@ -1,0 +1,133 @@
+.event {
+    min-height: 100vh;
+    padding: 60px 20px;
+    background: #f6f7fb;
+    color: #1c1c1e;
+    font-family: "Inter", sans-serif;
+}
+
+/* container */
+.event__container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* HERO */
+.event__hero {
+    margin-bottom: 32px;
+    padding: 28px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #ececf1;
+}
+
+.event__hero h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+/* META */
+.event__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.event__meta span {
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #f1f3f7;
+    color: #555;
+    border: 1px solid #e7e9ee;
+}
+
+/* LAYOUT */
+.event__layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+/* MEDIA */
+.event__grid {
+    display: grid;
+    gap: 18px;
+}
+
+.event__media {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #ececf1;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event__media:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.event__media img,
+.event__media video {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 420px;
+}
+
+/* DESCRIPTION */
+.event__description {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    padding: 22px;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #ececf1;
+}
+
+.event__description h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.event__description p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* BUTTON */
+.event__description button {
+    margin-top: 18px;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dcdfe6;
+    border-radius: 10px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.event__description button:hover {
+    background: #f5f6f9;
+    transform: translateY(-1px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .event__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .event__hero h1 {
+        font-size: 26px;
+    }
+
+    .event__description {
+        position: relative;
+    }
+}
