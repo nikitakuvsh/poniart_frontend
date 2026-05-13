@@ -7,15 +7,15 @@ export default function Where() {
         if (window.ymaps) {
             window.ymaps.ready(() => {
                 const map = new window.ymaps.Map("map", {
-                    center: [55.7539, 37.6208],
+                    center: [55.907641, 37.456371],
                     zoom: 15
                 });
 
                 const placemark = new window.ymaps.Placemark(
-                    [55.7539, 37.6208],
+                    [55.907641, 37.456371],
                     {
-                        hintContent: "Мы здесь!",
-                        balloonContent: "Детские мастер-классы"
+                        hintContent: "ПониАрт творческая студия",
+                        balloonContent: "ПониАрт творческая студия"
                     }
                 );
 
@@ -34,10 +34,10 @@ export default function Where() {
 
             {/* инфо под картой */}
             <div className="where__info">
-                <p>Москва, Красная площадь, 1</p>
+                <p>ул. Чернышевского, 3, Химки. Подъезд 11, кабинет 55</p>
 
                 <a 
-                    href="https://yandex.ru/maps/?rtext=~55.7539,37.6208" 
+                    href="https://yandex.ru/maps/?rtext=~55.907641,37.456371" 
                     target="_blank"
                     rel="noreferrer"
                     className="where__btn"

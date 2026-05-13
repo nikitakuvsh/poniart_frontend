@@ -21,3 +21,9 @@ html, body {
 .brush {
     font-family: 'Pangolin' !important;
 }
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
