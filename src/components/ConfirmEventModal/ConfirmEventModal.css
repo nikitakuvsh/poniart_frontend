@@ -1,0 +1,156 @@
+.confirm__modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+/* фон */
+.confirm__modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+/* окно */
+.confirm__modal-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(520px, 92vw);
+    padding: 28px;
+
+    background: #fff;
+    border-radius: 14px;
+
+    border: 1px solid #eaeaea;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* заголовок */
+.confirm__modal-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    color: #111;
+}
+
+/* текст */
+.confirm__modal-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+}
+
+/* input */
+.confirm__modal-input {
+    padding: 10px 12px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.confirm__modal-input:focus {
+    border-color: #999;
+}
+
+/* link */
+.confirm__modal-link {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* кнопка */
+.confirm__modal-button {
+    margin-top: 10px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+    border: 1px solid #000;
+
+    background: white;
+    color: black;
+    border: 1px solid black;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.confirm__modal-button:hover {
+    background: black;
+    color: white;
+}
+
+/* закрытие */
+.confirm__modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 22px;
+    cursor: pointer;
+
+    color: #999;
+}
+
+.confirm__modal-close:hover {
+    color: #000;
+}
+
+
+@media (max-width: 600px) {
+
+    .confirm__modal-content {
+        width: 92vw;
+        padding: 20px;
+
+        border-radius: 12px;
+
+        gap: 12px;
+    }
+
+    .confirm__modal-title {
+        font-size: 18px;
+    }
+
+    .confirm__modal-text {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .confirm__modal-input {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .confirm__modal-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .confirm__modal-close {
+        top: 8px;
+        right: 10px;
+        font-size: 20px;
+    }
+}

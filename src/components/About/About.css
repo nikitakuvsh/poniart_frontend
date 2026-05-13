@@ -182,3 +182,86 @@
     max-width: 600px;
     margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+
+    .about {
+        padding: 60px 16px;
+    }
+
+    /* HERO */
+    .about__hero {
+        margin-bottom: 40px;
+    }
+
+    .about__hero h1 {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+
+    .about__hero p {
+        font-size: 14px;
+    }
+
+    /* GRID → FLEX COLUMN */
+    .about__grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 60px;
+    }
+
+    /* текстовый блок без наклона */
+    .about__text {
+        transform: none;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .about__text h2 {
+        font-size: 20px;
+    }
+
+    /* изображения — ровные */
+    .about__image {
+        transform: none !important;
+        border-radius: 18px;
+        height: 220px;
+    }
+
+    .about__image.big,
+    .about__image.small {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    /* убираем декоративные слои (мобилке они мусорят) */
+    .about__image::before {
+        display: none;
+    }
+
+    .about__image::after {
+        background: linear-gradient(180deg, transparent, rgba(0,0,0,0.25));
+    }
+
+    /* bottom блок */
+    .about__bottom {
+        padding: 40px 20px;
+        border-radius: 20px;
+    }
+
+    .about__bottom h2 {
+        font-size: 22px;
+    }
+
+    .about__bottom p {
+        font-size: 14px;
+    }
+
+    .about__bottom::before {
+        width: 80px;
+        height: 80px;
+        top: -20px;
+        left: -20px;
+    }
+}

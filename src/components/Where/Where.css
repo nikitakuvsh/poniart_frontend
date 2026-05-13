@@ -39,8 +39,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    background: #fafafa;
     padding: 30px;
     border-radius: 16px;
     /* border: 1px solid #eee; */
@@ -60,18 +58,19 @@
 .where__btn {
     display: inline-block;
     text-align: center;
-
     padding: 12px;
-    border-radius: 10px;
+    border-radius: 8px !important;
     text-decoration: none;
-
-    background: #000;
-    color: #fff;
+    background: white !important;
+    color: black !important;
+    border: 1px solid black !important;
     transition: 0.2s;
+    width: 50% !important;
 }
 
 .where__btn:hover {
-    background: #333;
+    background: black !important;
+    color: white !important;
 }
 
 .where {
@@ -122,4 +121,30 @@
 
 .where__btn:hover {
     background: #333;
+}
+
+@media (max-width: 768px) {
+
+    .where {
+        padding: 50px 16px;
+    }
+
+    .where__title {
+        font-size: 24px;
+    }
+
+    .where__map {
+        height: 320px;
+    }
+
+    .where__info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .where__btn {
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+    }
 }

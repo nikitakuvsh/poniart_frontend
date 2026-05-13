@@ -1,9 +1,11 @@
 import './Event.css';
 import { useParams } from "react-router-dom";
+import { useState } from 'react';
 import drawingVideo from '../../video/drawing.mp4';
 import drawingPicture from '../../images/pictures/drawing.png';
 import figureVideo from '../../video/figure.mp4';
 import figurePicture from '../../images/pictures/figure.png';
+import ConfirmEventModal from '../ConfirmEventModal/ConfirmEventModal';
 
 const eventsData = [
     {
@@ -36,6 +38,7 @@ const eventsData = [
 
 export default function Event() {
     const { id } = useParams();
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     const event = eventsData.find(e => e.id === Number(id));
 
@@ -82,12 +85,14 @@ export default function Event() {
                     <h2>Описание</h2>
                     <p>{event.description}</p>
 
-                    <button>Записаться</button>
+                    <button onClick={() => setConfirmModalOpen(true)}>Записаться</button>
                 </div>
 
             </div>
 
         </div>
+
+        {confirmModalOpen && (<ConfirmEventModal onClose={() => setConfirmModalOpen(false)} />)}
 
     </section>
 );

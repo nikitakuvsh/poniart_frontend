@@ -1,86 +1,208 @@
+/* базово */
 .header {
     position: sticky;
     top: 0;
     width: 100%;
-    background: #ffffff;
+    background: #fff;
     border-bottom: 1px solid #eee;
     z-index: 1000;
 
     transition: all 0.25s ease;
 }
 
-/* состояние ДО скролла */
+/* скролл эффект */
+.header--scrolled {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+/* контейнер */
 .header__content {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 18px 20px;
+    padding: 16px 20px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    transition: all 0.25s ease;
-}
-
-/* 🔥 СКРОЛЛ */
-.header--scrolled {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #eaeaea;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-}
-
-.header--scrolled .header__content {
-    padding: 10px 20px;
+    position: relative;
 }
 
 /* логотип */
 .header__logo {
-    font-size: 18px;
     font-weight: 600;
-    color: #222;
+    font-size: 18px;
     cursor: pointer;
-    transition: transform 0.2s ease;
 }
 
-.header--scrolled .header__logo {
-    transform: scale(0.95);
-}
-
-/* nav */
-.header__nav {
+/* desktop nav */
+.header__nav-desktop {
     display: flex;
     gap: 24px;
 }
 
-.header__nav a,
-.header__nav a:visited {
+.header__nav-desktop a {
     text-decoration: none;
     color: #666;
     font-size: 14px;
-    transition: color 0.2s, transform 0.2s;
 }
 
-.header__nav a:hover {
+.header__nav-desktop a:hover {
     color: #000;
-    transform: translateY(-1px);
 }
 
 /* кнопка */
 .header__btn {
     padding: 8px 16px;
-    font-size: 14px;
-
-    background: #f5f5f5;
     border: 1px solid #ddd;
     border-radius: 8px;
-
+    background: #fff;
     cursor: pointer;
-    transition: all 0.2s ease;
 }
 
 .header__btn:hover {
-    background: #000;
-    color: #fff;
     border-color: #000;
+}
+
+/* бургер */
+.header__burger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.header__burger span {
+    width: 22px;
+    height: 2px;
+    background: #000;
+    transition: 0.2s;
+}
+
+/* анимация */
+.header__burger.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.header__burger.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.header__burger.is-open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* MOBILE MENU */
+.header__nav-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    background: #fff;
+    border-left: 1px solid #eee;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 80px 20px;
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    z-index: 1001;
+}
+
+.header__nav-mobile.is-open {
+    transform: translateX(0);
+}
+
+.header__nav-mobile a {
+    text-decoration: none;
+    color: #222;
+    font-size: 16px;
+}
+
+/* overlay */
+.header__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+/* фикс “можно свайпнуть и увидеть” */
+.header__nav-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 260px;
+    height: 100vh;
+
+    background: #fff;
+    border-left: 1px solid #eee;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 80px 20px;
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    z-index: 1002;
+
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.header__nav-mobile.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* кнопка закрытия */
+.header__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* overlay выше страницы, но ниже меню */
+.header__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 1001;
+}
+
+/* чтобы не было горизонтального скролла */
+body {
+    overflow-x: hidden;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .header__nav-desktop {
+        display: none;
+    }
+
+    .header__btn {
+        display: none;
+    }
+
+    .header__burger {
+        display: flex;
+    }
 }

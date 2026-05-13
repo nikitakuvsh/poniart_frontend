@@ -1,6 +1,7 @@
 .events {
     padding: 80px 20px;
     background: #fff;
+    background-image: url('../../images/pictures/backgroundSubscribes.svg');
 }
 
 .events__container {
@@ -9,9 +10,33 @@
 }
 
 .events__title {
-    font-size: 32px;
-    margin-bottom: 40px;
-    color: #222;
+    font-size: 42px;
+    color: #bb59a7;
+    letter-spacing: 0.2cm;
+    transform: scaleY(1.15);
+    display: inline-block;
+    font-family: 'TitleBrush' !important;
+}
+
+.events__subtitle {
+    margin-top: 5px;
+    color: #666;
+}
+
+.title__container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.events__title-ico {
+    width: 150px;
+    height: 150px;
+}
+
+.flowers__title {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
 }
 
 /* FLEX список */
@@ -34,6 +59,7 @@
 
     border: 1px solid #eee;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .event__card:hover {
@@ -114,4 +140,77 @@
 /* время */
 .event__time {
     color: #888;
+}
+
+.text-under__container {
+    position: relative;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+/* вертикальная линия */
+.text-under__container::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, #7BC4B3, #A0E0D0);
+    border-radius: 2px;
+}
+
+/* текст */
+.events__text--under {
+    margin: 0 0 10px;
+    color: #555;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+
+    .event__card {
+        width: calc(50% - 12px);
+    }
+
+    .events__list {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .event__card {
+        width: 100%;
+    }
+
+    .events {
+        padding: 50px 16px;
+    }
+
+    .events__title {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .event__image {
+        height: 160px;
+    }
+
+    .event__content {
+        padding: 14px;
+    }
+
+    .event__content h3 {
+        font-size: 16px;
+    }
+
+    .event__info {
+        font-size: 12px;
+    }
+
+    .event__content button {
+        padding: 10px;
+        font-size: 14px;
+    }
 }
