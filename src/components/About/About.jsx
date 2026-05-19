@@ -1,5 +1,5 @@
 import './About.css';
-import kidsImage from '../../images/pictures/kids.png';
+import kidsImage from '../../images/pictures/eventDrawing.png';
 import kidsImagetwo from '../../images/pictures/kids2.png';
 import kidsImagethree from '../../images/pictures/kids3.png';
 

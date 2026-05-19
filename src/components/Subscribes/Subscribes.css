@@ -127,6 +127,7 @@
     color: #444;
     padding-left: 18px;
     position: relative;
+    font-family: 'Pangolin' !important;
 }
 
 .subscribe-card__features li::before {

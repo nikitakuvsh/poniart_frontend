@@ -125,10 +125,11 @@
 
 .what-will-happen__text {
     font-family: 'Pangolin';
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 0.01cm;
-    text-wrap: nowrap;
     margin-top: 15px;
+    white-space: pre-line;
+    line-height: 1.8;
 }
 
 .right {

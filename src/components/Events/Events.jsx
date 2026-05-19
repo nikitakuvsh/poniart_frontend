@@ -2,9 +2,10 @@ import './Events.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import ConfirmEventModal from '../ConfirmEventModal/ConfirmEventModal';
-import paintImage from '../../images/pictures/paint.png';
+import paintImage from '../../images/pictures/eventDrawingHolst.png';
 import titleIco from '../../images/icons/icoTitleSVG.svg';
 import flowersTitleImage from '../../images/pictures/eventsFlowers.png';
+import lepkaImage from '../../images/pictures/lepka.png';
 
 const eventsData = [
     {
@@ -19,7 +20,7 @@ const eventsData = [
         title: "Лепка из глины",
         day: "Четверг",
         time: "17:00 – 19:00",
-        image: "https://afishka31.ru/img/actions/2022/24628.jpg"
+        image: lepkaImage
     },
     {
         id: 3,

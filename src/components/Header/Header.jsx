@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import './Header.css';
+import logoImage from '../../images/icons/logo.svg';
 
 export default function Header() {
     const navigate = useNavigate();
@@ -39,19 +40,15 @@ export default function Header() {
     const toggleMenu = () => setMenuOpen(prev => !prev);
     const closeMenu = () => setMenuOpen(false);
 
+    const aButton = document.getElementsByClassName('a--events');
+
     return (
         <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
 
             <div className="header__content">
 
-                <div
-                    className="header__logo"
-                    onClick={() => {
-                        navigate('/#about');
-                        closeMenu();
-                    }}
-                >
-                    Пони Арт
+                <div className="header__logo" onClick={() => {navigate('/#about'); closeMenu(); }}>
+                    <img className='header__logo-image' src={logoImage} alt='Пони Арт' title='Творческая студия ПониАрт'/>
                 </div>
 
                 <nav className="header__nav-desktop">
@@ -96,10 +93,9 @@ export default function Header() {
                     Об абонементах
                 </Link>
 
-                <button className="header__btn" onClick={closeMenu}>
+                <button className="header__btn" onClick={() => {aButton.click(); navigate('/#events'); closeMenu(); }}>
                     Записаться
                 </button>
-
             </nav>
 
             {menuOpen && <div className="header__overlay" />}
