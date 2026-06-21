@@ -183,3 +183,81 @@
     flex-direction: column;
     flex: 1; /* 👈 ВОТ ЭТО КЛЮЧ */
 }
+
+@media (max-width: 900px) {
+
+    .subscribes__title {
+        font-size: 34px;
+    }
+
+    .title__img {
+        width: 90px;
+    }
+
+    .subscribes__list {
+        gap: 16px;
+    }
+
+    .badge__title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .subscribes {
+        padding: 50px 16px;
+    }
+
+    .title__container {
+        justify-content: center;
+    }
+
+    .title__img {
+        width: 70px;
+    }
+
+    .subscribes__title {
+        font-size: 24px;
+        letter-spacing: 0.05cm;
+    }
+
+    .subscribes__subtitle {
+        font-size: 13px;
+    }
+
+    .subscribes__list {
+        margin-top: 24px;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .subscribe-card {
+        padding: 16px;
+    }
+
+    .badge__title {
+        font-size: 24px;
+    }
+
+    .subscribe-card__badge span {
+        font-size: 14px;
+    }
+
+    .subscribe-card__features li {
+        font-size: 13px;
+    }
+
+    .subscribe-card__price {
+        font-size: 18px;
+    }
+
+    .subscribe-card__btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .subscribe-card__bottom--flower {
+        width: 50px;
+    }
+}

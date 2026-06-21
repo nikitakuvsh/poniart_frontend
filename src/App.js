@@ -9,7 +9,6 @@ import Subscribes from './components/Subscribes/Subscribes';
 import Where from './components/Where/Where';
 import Event from './components/Event/Event';
 import AboutSubscribe from './components/AboutSubscribe/AboutSubscribe';
-import SubscribeCard from './components/SubscribeCard/SubscribeCard';
 
 import ScrollHandler from './scrollHandler';
 
@@ -33,7 +32,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/event/:id" element={<Event />} />
         <Route path="/about-subscribe" element={<AboutSubscribe />} />
-        <Route path='/subscribe/:id' element={<SubscribeCard />}></Route>
       </Routes>
     </BrowserRouter>
   );

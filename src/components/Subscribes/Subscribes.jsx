@@ -1,11 +1,12 @@
 import './Subscribes.css';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import titleImg from '../../images/icons/subscribeIcon.png';
 import klyaksaImg from '../../images/icons/klyaksa.svg';
 import flowerFirst from '../../images/icons/flower1.svg';
 import flowerSecond from '../../images/icons/flower2.svg';
 import flowerThird from '../../images/icons/flower3.svg';
 import flowerLast from '../../images/icons/flower4.svg';
+import ConfirmAbonementModal from '../ConfirmAbonementModal/ConfirmAbonementModal';
 
 const plans = [
     {
@@ -62,13 +63,13 @@ const plans = [
 ];
 
 export default function Subscribes() {
-    const navigate = useNavigate();
+    const [confirmModalOpen, setConfirmModalOpen] = useState(false);
     return (
         <section className="subscribes" id='subscriptions'>
             <div className="subscribes__container">
 
                 <div className='title__container'>
-                    <img className='title__img' src={titleImg} />
+                    <img className='title__img' src={titleImg} alt="title" />
                     <div className='title__text-container'>
                         <h2 className="subscribes__title">Абонементы</h2>
                         <p className='subscribes__subtitle brush'>Выберите формат, который подходит именно вам</p>
@@ -80,10 +81,10 @@ export default function Subscribes() {
                         <div
                             className="subscribe-card"
                             key={plan.id}
-                            onClick={() => navigate(`/subscribe/${plan.id}`)}
+                            onClick={() => setConfirmModalOpen(true)}
                         >
                             <div className="subscribe-card__badge" style={{ '--badge-color': plan.color}}>
-                                <img className='badge__klyaksa' src={klyaksaImg}/>
+                                <img className='badge__klyaksa' src={klyaksaImg} alt="klyaksa" />
                                 <h3 className='badge__title brush'>{plan.title}</h3>
                                 {plan.subtitle && <span>{plan.subtitle}</span>}
                             </div>
@@ -96,7 +97,7 @@ export default function Subscribes() {
                                 </ul>
 
                                 <div className="subscribe-card__bottom">
-                                    <img className='subscribe-card__bottom--flower' style={{'--badge-color': plan.color}} src={plan.flower} />
+                                    <img className='subscribe-card__bottom--flower' style={{'--badge-color': plan.color}} src={plan.flower} alt="flower"/>
                                     <div className="subscribe-card__price" style={{'--badge-color': plan.color}}>{plan.price}</div>
                                     <button className="subscribe-card__btn" style={{'--badge-color': plan.color}}>
                                         Выбрать
@@ -106,6 +107,10 @@ export default function Subscribes() {
                         </div>
                     ))}
                 </div>
+
+                {confirmModalOpen && (
+                    <ConfirmAbonementModal onClose={() => setConfirmModalOpen(false)} />
+                )}
 
             </div>
         </section>

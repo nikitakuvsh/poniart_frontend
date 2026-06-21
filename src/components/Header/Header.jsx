@@ -81,21 +81,11 @@ export default function Header() {
                 {/* кнопка закрытия */}
                 <div className="header__close" onClick={closeMenu}>✕</div>
 
-                <a href="#events" onClick={closeMenu}>
-                    Мероприятия
-                </a>
+                <a href="#events" onClick={() => {navigate('/#events'); closeMenu();}}>Мероприятия</a>
+                <a href="#subscriptions" onClick={() => {navigate('/#subscriptions'); closeMenu();}}>Абонементы</a>
+                <Link to="/about-subscribe" onClick={() => {navigate('/#about-subscribe'); closeMenu();}}>Об абонементах</Link>
 
-                <a href="#subscriptions" onClick={closeMenu}>
-                    Абонементы
-                </a>
-
-                <Link to="/about-subscribe" onClick={closeMenu}>
-                    Об абонементах
-                </Link>
-
-                <button className="header__btn" onClick={() => {aButton.click(); navigate('/#events'); closeMenu(); }}>
-                    Записаться
-                </button>
+                <button className="header__btn" onClick={() => {aButton.click(); navigate('/#events'); closeMenu(); }}>Записаться</button>
             </nav>
 
             {menuOpen && <div className="header__overlay" />}

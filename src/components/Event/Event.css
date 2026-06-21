@@ -242,3 +242,153 @@
     color: rgb(19, 22, 58);
     max-width: 70%;
 }
+
+@media (max-width: 900px) {
+
+    .event-info__flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .event-info__image {
+        text-align: center;
+    }
+
+    .event-info__image-img {
+        max-width: 500px;
+    }
+
+    .event-info__block {
+        flex-wrap: wrap;
+        gap: 25px;
+    }
+
+    .flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .right {
+        justify-content: center;
+    }
+
+    .what-will-happen__image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .event-info-block__under {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .under__small-block:not(:last-child)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .event {
+        padding: 50px 16px;
+    }
+
+    .event-info__title {
+        font-size: 24px;
+        letter-spacing: 0.05cm;
+    }
+
+    .event-info__subtitle {
+        font-size: 14px;
+    }
+
+    .event-info__p {
+        margin-top: 20px;
+        font-size: 15px;
+    }
+
+    .event-info__button {
+        width: 100%;
+        justify-content: center;
+        padding: 14px;
+        font-size: 15px;
+        margin-top: 25px;
+    }
+
+    .event-info__image {
+        display: none;
+    }
+
+    .event-info__block {
+        padding: 20px;
+        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .event-info__small-block-image {
+        max-width: 45px;
+        margin-right: 14px;
+    }
+
+    .event-info__small-block-title {
+        font-size: 16px;
+    }
+
+    .event-info__small-block-text {
+        font-size: 14px;
+    }
+
+    .what-will-happen__title,
+    .event-info-block__under-title {
+        font-size: 24px;
+    }
+
+    .what-will-happen__text {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .event-info-block__under {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .under__small-icon {
+        width: 45px;
+    }
+
+    .under__small-text {
+        font-size: 14px;
+    }
+
+    .event__attention {
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .attention__img {
+        display: none;
+    }
+
+    .attention--circle {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        flex-shrink: 0;
+    }
+
+    .attention__title {
+        font-size: 16px;
+    }
+
+    .attention__text {
+        max-width: 100%;
+        font-size: 14px;
+    }
+}
