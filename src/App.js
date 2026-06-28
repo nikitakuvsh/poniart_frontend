@@ -9,6 +9,7 @@ import Subscribes from './components/Subscribes/Subscribes';
 import Where from './components/Where/Where';
 import Event from './components/Event/Event';
 import AboutSubscribe from './components/AboutSubscribe/AboutSubscribe';
+import Footer from './components/Footer/Footer';
 
 import ScrollHandler from './scrollHandler';
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/event/:id" element={<Event />} />
         <Route path="/about-subscribe" element={<AboutSubscribe />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
