@@ -85,6 +85,10 @@
     align-items: center;
 }
 
+.what-will-happen__items {
+    max-width: 1100px;
+}
+
 .event-info__small-block {
     display: flex;
 }

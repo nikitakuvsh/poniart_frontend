@@ -8,6 +8,12 @@ export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef(null);
+    const [hasSubscriptions, setHasSubscriptions] = useState(false);
+
+    useEffect(() => {
+        const subscriptions = JSON.parse(localStorage.getItem("subscriptions") || "[]");
+        setHasSubscriptions(subscriptions.length > 0);
+    }, []);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
@@ -16,7 +22,6 @@ export default function Header() {
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
-    // закрытие по клику вне
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -26,7 +31,7 @@ export default function Header() {
 
         if (menuOpen) {
             document.addEventListener('mousedown', handleClickOutside);
-            document.body.style.overflow = 'hidden'; // блок скролла
+            document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
         }
@@ -55,6 +60,8 @@ export default function Header() {
                     <a href="#events" onClick={() => navigate('/#events')}>Мероприятия</a>
                     <a href="#subscriptions" onClick={() => navigate('/#subscriptions')}>Абонементы</a>
                     <Link to="/about-subscribe">Об абонементах</Link>
+                    <Link to="/subscribes" style={{display: hasSubscriptions ? '' : 'none'}}>Мои абонементы</Link>
+                    <Link to="/help">Поддержка</Link>
                 </nav>
 
                 <button className="header__btn">
@@ -84,6 +91,8 @@ export default function Header() {
                 <a href="#events" onClick={() => {navigate('/#events'); closeMenu();}}>Мероприятия</a>
                 <a href="#subscriptions" onClick={() => {navigate('/#subscriptions'); closeMenu();}}>Абонементы</a>
                 <Link to="/about-subscribe" onClick={() => {navigate('/#about-subscribe'); closeMenu();}}>Об абонементах</Link>
+                <Link to="/subscribes" onClick={() => {navigate('/subscribes'); closeMenu();}}>Мои абонементы</Link>
+                <Link to="/help" onClick={() => {navigate('/help'); closeMenu();}}>Поддержка</Link>
 
                 <button className="header__btn" onClick={() => {aButton.click(); navigate('/#events'); closeMenu(); }}>Записаться</button>
             </nav>

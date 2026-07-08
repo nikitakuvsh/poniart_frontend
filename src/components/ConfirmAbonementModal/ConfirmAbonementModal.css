@@ -102,6 +102,17 @@
     color: white;
 }
 
+.confirm__modal-button--disabled {
+    cursor: no-drop;
+    color: gray;
+    border: 1px solid gray;
+}
+
+.confirm__modal-button.confirm__modal-button--disabled:hover {
+    color: gray !important;
+    border: 1px solid gray !important;
+}
+
 /* закрытие */
 .confirm__modal-close {
     position: absolute;
@@ -121,6 +132,44 @@
     color: #000;
 }
 
+.confirm__modal-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 20px;
+
+  font-size: 14px;
+  color: #333;
+}
+
+
+.confirm__modal-name-input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  border: 1px solid #ddd;
+
+  font-size: 16px;
+
+  outline: none;
+
+  transition: border .2s ease;
+}
+
+
+.confirm__modal-name-input:focus {
+  border-color: #111;
+}
+
+
+.confirm__modal-name-input::placeholder {
+  color: #aaa;
+}
 
 @media (max-width: 600px) {
 

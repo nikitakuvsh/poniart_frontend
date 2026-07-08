@@ -1,89 +1,132 @@
 import './Events.css';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ConfirmEventModal from '../ConfirmEventModal/ConfirmEventModal';
+
 import paintImage from '../../images/pictures/eventDrawingHolst.png';
-import titleIco from '../../images/icons/icoTitleSVG.svg';
-import flowersTitleImage from '../../images/pictures/eventsFlowers.png';
 import lepkaImage from '../../images/pictures/lepka.png';
 
-const eventsData = [
-    {
-        id: 1,
-        title: "Живопись и рисунок",
-        day: "Вторник",
-        time: "16:00 – 18:00",
-        image: paintImage
-    },
-    {
-        id: 2,
-        title: "Лепка из глины",
-        day: "Четверг",
-        time: "17:00 – 19:00",
-        image: lepkaImage
-    },
-    {
-        id: 3,
-        title: "Создание игрушек",
-        day: "Суббота",
-        time: "14:00 – 16:00",
-        image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=800"
-    }
-];
+import titleIco from '../../images/icons/icoTitleSVG.svg';
+import flowersTitleImage from '../../images/pictures/eventsFlowers.png';
+
+import saglImage from '../../images/pictures/sagl.jpg';
+
+const eventImages = {
+    1: paintImage,
+    2: lepkaImage,
+    3: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=800"
+};
 
 export default function Events() {
     const navigate = useNavigate();
+
+    const [events, setEvents] = useState([]);
     const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
+    useEffect(() => {
+        fetch("http://localhost:8000/events")
+            .then((res) => res.json())
+            .then((data) => setEvents(data))
+            .catch(console.error);
+    }, []);
+
+    // Функция для получения изображения события
+    const getEventImage = (eventId) => {
+        // Если есть в eventImages - используем
+        if (eventImages[eventId]) {
+            return eventImages[eventId];
+        }
+        // Иначе используем дефолтное изображение
+        return saglImage;
+    };
+
     return (
-        <section className="events" id='events'>
+        <section className="events" id="events">
             <div className="events__container">
-                <div className='title__container'>
-                    <img className='events__title-ico' src={titleIco}/>
+
+                <div className="title__container">
+                    <img
+                        className="events__title-ico"
+                        src={titleIco}
+                        alt=""
+                    />
+
                     <div>
                         <h2 className="events__title">Мероприятия</h2>
-                        <p className='events__subtitle brush'>Творчество, которое вдохновляет</p>
+                        <p className="events__subtitle brush">
+                            Творчество, которое вдохновляет
+                        </p>
                     </div>
+
                     <div>
-                        <img className='flowers__title right' src={flowersTitleImage} />
+                        <img
+                            className="flowers__title right"
+                            src={flowersTitleImage}
+                            alt=""
+                        />
                     </div>
                 </div>
 
                 <div className="events__list">
+                    {events.map((event) => {
+                        const firstDate = event.dates?.[0];
+                        const imageUrl = getEventImage(event.id);
 
-                    {eventsData.map((event) => (
-                        <div
-                            className="event__card"
-                            key={event.id}
-                            onClick={() => navigate(`event/${event.id}`)}
-                        >
-
-                            <div className="event__image">
-                                <img src={event.image} alt={event.title} />
-                            </div>
-
-                            <div className="event__content">
-
-                                <div className="event__info">
-                                    <span className="event__day">{event.day}</span>
-                                    <span className="event__time">{event.time}</span>
+                        return (
+                            <div
+                                className="event__card"
+                                key={event.id}
+                                onClick={() => navigate(`event/${event.id}`)}
+                            >
+                                <div className="event__image">
+                                    <img
+                                        src={imageUrl}
+                                        alt={event.title}
+                                    />
                                 </div>
 
-                                <h3>{event.title}</h3>
+                                <div className="event__content">
+                                    <div className="event__info">
+                                        <span className="event__day">
+                                            {firstDate?.day || ""}
+                                        </span>
 
-                                <button onClick={(e) => { e.stopPropagation(); setConfirmModalOpen(true); }}>Записаться</button>
+                                        <span className="event__time">
+                                            {firstDate
+                                                ? `${firstDate.start_time} – ${firstDate.end_time}`
+                                                : ""}
+                                        </span>
+                                    </div>
 
+                                    <h3>{event.title}</h3>
+
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setConfirmModalOpen(true);
+                                        }}
+                                    >
+                                        Записаться
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
-
+                        );
+                    })}
                 </div>
-                
-                <div className='text-under__container'>
-                    <p className="events__text--under">День рождения без банальных застолий? Легко. Свидание, где вы создаёте что-то вместе? Это возможно.</p>
-                    <p className='events__text--under'>Приводите гостей или вторую половинку — мы превратим мастер-класс в незабываемый праздник.</p>
+
+                <div className="text-under__container">
+                    <p className="events__text--under">
+                        День рождения без банальных застолий? Легко. Свидание,
+                        где вы создаёте что-то вместе? Это возможно.
+                    </p>
+
+                    <p className="events__text--under">
+                        Приводите гостей или вторую половинку — мы превратим
+                        мастер-класс в незабываемый праздник.
+                    </p>
                 </div>
             </div>
+
             {confirmModalOpen && (
                 <ConfirmEventModal
                     onClose={() => setConfirmModalOpen(false)}

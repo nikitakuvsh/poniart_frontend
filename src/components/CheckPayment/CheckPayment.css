@@ -1,0 +1,204 @@
+.payment-success {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    background: #fff;
+}
+
+
+.payment-success__card {
+    width: 100%;
+    max-width: 520px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* Анимация */
+
+.payment-success__loader {
+    width: 200px;
+    height: 200px;
+
+    margin-bottom: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+.payment-success__animation {
+    width: 200px;
+    height: 200px;
+    animation: smoothPulse 2.5s ease-in-out infinite;
+}
+
+
+/* Текст */
+
+.payment-success__content h2 {
+    margin: 0 0 12px;
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: #111;
+}
+.success-animation {
+    width: 100%;
+}
+
+
+.payment-success__content p {
+    margin: 0 auto;
+
+    max-width: 380px;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    color: #777;
+}
+
+
+/* Кнопка */
+
+.payment-success__button {
+    margin-top: 35px;
+
+    padding: 13px 28px;
+
+    border-radius: 999px;
+
+    border: 1px solid #111;
+
+    background: transparent;
+
+    color: #111;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.payment-success__button:hover {
+    background: #111;
+
+    color: white;
+}
+
+.subscription-number {
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.subscription-number span {
+    font-size: 14px;
+    color: #888;
+}
+
+
+.subscription-number strong {
+    font-size: 42px;
+
+    letter-spacing: 8px;
+
+    font-weight: 700;
+
+    color: #111;
+}
+
+
+.subscription-number p {
+    margin-top: 15px;
+
+    font-size: 14px;
+
+    color: #666;
+}
+
+/* Плавность */
+
+@keyframes smoothPulse {
+
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.04);
+        opacity: .85;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+
+/* Мобильная версия */
+
+@media (max-width: 600px) {
+
+    .payment-success {
+        padding: 20px;
+    }
+
+
+    .payment-success__loader {
+        width: 100px;
+        height: 100px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .payment-success__animation {
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .payment-success__content h2 {
+        font-size: 23px;
+    }
+
+
+    .payment-success__content p {
+        font-size: 15px;
+        max-width: 300px;
+    }
+
+
+    .payment-success__button {
+        width: 100%;
+        max-width: 280px;
+    }
+
+}

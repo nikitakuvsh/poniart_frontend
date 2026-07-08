@@ -1,7 +1,7 @@
 import './About.css';
 import kidsImage from '../../images/pictures/eventDrawing.png';
-import kidsImagetwo from '../../images/pictures/kids2.png';
-import kidsImagethree from '../../images/pictures/kids3.png';
+import kidsImagetwo from '../../images/pictures/poniart_main.jpg';
+import kidsImagethree from '../../images/pictures/poniart_second.jpg';
 
 export default function About() {
     return (
@@ -35,15 +35,15 @@ export default function About() {
                     </div>
 
                     <div className="about__image big">
-                        <img src={kidsImage} />
+                        <img src={kidsImage} alt='kidsImage' />
                     </div>
 
                     <div className="about__image small">
-                        <img src={kidsImagetwo}/>
+                        <img src={kidsImagetwo} alt='drawing_main' />
                     </div>
 
                     <div className="about__image small">
-                        <img src={kidsImagethree}/>
+                        <img src={kidsImagethree} alt='illustration' />
                     </div>
                 </div>
 

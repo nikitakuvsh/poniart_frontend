@@ -27,3 +27,39 @@ img {
     -webkit-user-drag: none;
     -webkit-user-select: none;
 }
+
+html,
+body,
+#root {
+    min-height: 100%;
+    margin: 0;
+}
+
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+header {
+    flex-shrink: 0;
+}
+
+
+main {
+    flex: 1;
+}
+
+
+footer {
+    margin-top: auto;
+    flex-shrink: 0;
+}

@@ -12,8 +12,9 @@ const plans = [
     {
         id: 1,
         title: "Разовый",
+        type: "trial",
         subtitle: "(пробный)",
-        price: "1 000 ₽",
+        price: "1 ₽",
         color: "#7BC4B3",
         flower: flowerFirst,
         features: [
@@ -25,7 +26,8 @@ const plans = [
     {
         id: 2,
         title: "Стандарт",
-        price: "3 000 ₽",
+        type: "standard",
+        price: "2 ₽",
         color: "#F29C7A",
         flower: flowerSecond,
         features: [
@@ -36,6 +38,7 @@ const plans = [
     {
         id: 3,
         title: "Оптимальный",
+        type: "optimal",
         price: "5 800 ₽",
         color: "#D8A85C",
         flower: flowerThird,
@@ -48,6 +51,7 @@ const plans = [
     {
         id: 4,
         title: "Про",
+        type: "pro",
         price: "5 400 ₽",
         color: "#B59AD6",
         flower: flowerLast,
@@ -56,7 +60,7 @@ const plans = [
             "Подготовка к поступлению в художественную школу",
             "Индивидуальный план поступления",
             "Пробный вступительный экзамен в формате школы",
-            "Отчёт для родителей (прогресс, что нужно тренировать)",
+            "Отчёт для родителей",
             "Помощь в создании и оформлении портфолио"
         ]
     }
@@ -64,6 +68,8 @@ const plans = [
 
 export default function Subscribes() {
     const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState(null);
+
     return (
         <section className="subscribes" id='subscriptions'>
             <div className="subscribes__container">
@@ -81,7 +87,10 @@ export default function Subscribes() {
                         <div
                             className="subscribe-card"
                             key={plan.id}
-                            onClick={() => setConfirmModalOpen(true)}
+                            onClick={() => {
+                                setSelectedPlan(plan);
+                                setConfirmModalOpen(true);
+                            }}
                         >
                             <div className="subscribe-card__badge" style={{ '--badge-color': plan.color}}>
                                 <img className='badge__klyaksa' src={klyaksaImg} alt="klyaksa" />
@@ -109,7 +118,7 @@ export default function Subscribes() {
                 </div>
 
                 {confirmModalOpen && (
-                    <ConfirmAbonementModal onClose={() => setConfirmModalOpen(false)} />
+                    <ConfirmAbonementModal plan={selectedPlan} onClose={() => setConfirmModalOpen(false)} />
                 )}
 
             </div>
