@@ -30,7 +30,7 @@ const plans = [
         title: "Стандарт",
         type: "standard",
         badge: "⭐️ Самый популярный",
-        price: "2000 ₽",
+        price: "3000 ₽",
         color: "#F29C7A",
         flower: flowerSecond,
         features: [
