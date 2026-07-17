@@ -12,14 +12,15 @@ import secondModelingImage from '../../images/pictures/secondModeling.png';
 import eventInfoImage from '../../images/pictures/eventsFlowers.png';
 
 import calendarIcon from '../../images/icons/calendar.svg';
-import twoPeopleIcon from '../../images/icons/twopeople.svg';
+import twoPeopleIcon from '../../images/icons/people.svg';
 import seatsIcon from '../../images/icons/seats.svg';
 import clockIcon from '../../images/icons/clock.svg';
 import paletteIcon from '../../images/icons/palette.svg';
-import canvasIcon from '../../images/icons/canvas.svg';
+import canvasIcon from '../../images/icons/easel.svg';
 import apronIcon from '../../images/icons/apron.svg';
-import teaIcon from '../../images/icons/tea.svg';
+import teaIcon from '../../images/icons/cup.svg';
 import brushImage from '../../images/pictures/brush.png';
+import loveIcon from '../../images/icons/heart.svg';
 
 const fallback = {
     1: {
@@ -34,12 +35,13 @@ const fallback = {
 
 export default function Event() {
     const { id } = useParams();
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
     const [event, setEvent] = useState(null);
     const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/events/${id}`)
+        fetch(`http://${BACKEND_API}/events/${id}`)
             .then(res => res.json())
             .then(setEvent)
             .catch(console.error);
@@ -283,7 +285,7 @@ export default function Event() {
                     </div>
 
                     <div className='under__small-block'>
-                        <img className='under__small-icon' src={paletteIcon} alt="Атмосфера" />
+                        <img className='under__small-icon' src={loveIcon} alt="Атмосфера" />
                         <p className='under__small-text'>
                             Творческая атмосфера и поддержка
                         </p>
@@ -308,7 +310,7 @@ export default function Event() {
             </div>
 
             {confirmModalOpen && (
-                <ConfirmEventModal onClose={() => setConfirmModalOpen(false)} />
+                <ConfirmEventModal event={event} onClose={() => setConfirmModalOpen(false)} />
             )}
 
         </section>

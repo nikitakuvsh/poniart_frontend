@@ -4,6 +4,7 @@ import './ConfirmAbonementModal.css';
 export default function ConfirmAbonementModal({ plan, onClose }) {
   const [isChecked, setIsChecked] = useState(false);
   const [fullName, setFullName] = useState('');
+  const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
   useEffect(() => {
     const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -30,7 +31,7 @@ export default function ConfirmAbonementModal({ plan, onClose }) {
 
 
     try {
-      const response = await fetch("http://localhost:8000/payments/create", {
+      const response = await fetch(`http://${BACKEND_API}/payments/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -111,6 +112,8 @@ export default function ConfirmAbonementModal({ plan, onClose }) {
         <p className='confirm__modal-text'>
           Перед приобретением абонемента настоятельно просим вас ознакомиться с положением «Об абонементах».
         </p>
+
+        <p className='confirm__modal-text'>После оплаты обязательно нажмите кнопку "Вернуться на сайт"!</p>
 
 
         <label className='confirm__modal-field'>

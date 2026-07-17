@@ -6,6 +6,7 @@ import successAnimation from '../../images/animations/success.svg';
 export default function CheckPayment() {
     const [status, setStatus] = useState("pending");
     const [subscriptionNumber, setSubscriptionNumber] = useState(null);
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export default function CheckPayment() {
         const getSubscription = async () => {
     try {
         const response = await fetch(
-            `http://localhost:8000/subscriptions/by-payment/${paymentId}`
+            `http://${BACKEND_API}/subscriptions/by-payment/${paymentId}`
         );
 
         if (!response.ok) {
@@ -84,7 +85,7 @@ export default function CheckPayment() {
             try {
 
                 const response = await fetch(
-                    `http://localhost:8000/payments/status/${paymentId}`
+                    `http://${BACKEND_API}/payments/status/${paymentId}`
                 );
 
 

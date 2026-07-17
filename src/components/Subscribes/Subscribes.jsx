@@ -13,45 +13,55 @@ const plans = [
         id: 1,
         title: "Разовый",
         type: "trial",
-        subtitle: "(пробный)",
-        price: "1 ₽",
+        subtitle: "(для новичков)",
+        price: "1000 ₽",
         color: "#7BC4B3",
         flower: flowerFirst,
         features: [
             "1 занятие",
             "Все материалы включены",
-            "Знакомство с атмосферой студии"
+            "Знакомство с преподавателем",
+            "Подбор направления обучения",
+            "Мини-разбор уровня подготовки"
         ]
     },
     {
         id: 2,
         title: "Стандарт",
         type: "standard",
-        price: "2 ₽",
+        badge: "⭐️ Самый популярный",
+        price: "2000 ₽",
         color: "#F29C7A",
         flower: flowerSecond,
         features: [
             "4 занятия",
             "Все материалы включены",
+            "Индивидуальный подход",
+            "Возможность выбрать удобное расписание",
+            "Поддержка преподавателя между занятиями"
         ]
     },
     {
         id: 3,
         title: "Оптимальный",
         type: "optimal",
+        badge: "🔥 Лучшее соотношение цена/качество",
         price: "5 800 ₽",
         color: "#D8A85C",
         flower: flowerThird,
         features: [
             "8 занятий",
             "Все материалы включены",
-            "Скидка 10% на мастер-классы"
+            "Скидка 10% на мастер-классы",
+            "Подходит для регулярных занятий",
+            "Возможность попробовать разные техники"
         ]
     },
     {
         id: 4,
         title: "Про",
         type: "pro",
+        badge: "👑 Максимальный результат",
         price: "5 400 ₽",
         color: "#B59AD6",
         flower: flowerLast,
@@ -92,7 +102,12 @@ export default function Subscribes() {
                                 setConfirmModalOpen(true);
                             }}
                         >
-                            <div className="subscribe-card__badge" style={{ '--badge-color': plan.color}}>
+                            <div className="subscribe-card__badge" style={{ '--badge-color': plan.color }}>
+                                {plan.badge && (
+                                    <p className="badge__absolute">
+                                        {plan.badge}
+                                    </p>
+                                )}
                                 <img className='badge__klyaksa' src={klyaksaImg} alt="klyaksa" />
                                 <h3 className='badge__title brush'>{plan.title}</h3>
                                 {plan.subtitle && <span>{plan.subtitle}</span>}
@@ -106,9 +121,9 @@ export default function Subscribes() {
                                 </ul>
 
                                 <div className="subscribe-card__bottom">
-                                    <img className='subscribe-card__bottom--flower' style={{'--badge-color': plan.color}} src={plan.flower} alt="flower"/>
-                                    <div className="subscribe-card__price" style={{'--badge-color': plan.color}}>{plan.price}</div>
-                                    <button className="subscribe-card__btn" style={{'--badge-color': plan.color}}>
+                                    <img className='subscribe-card__bottom--flower' style={{ '--badge-color': plan.color }} src={plan.flower} alt="flower" />
+                                    <div className="subscribe-card__price" style={{ '--badge-color': plan.color }}>{plan.price}</div>
+                                    <button className="subscribe-card__btn" style={{ '--badge-color': plan.color }}>
                                         Выбрать
                                     </button>
                                 </div>

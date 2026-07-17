@@ -75,6 +75,13 @@
     overflow: visible;
 }
 
+.badge__absolute {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: black;
+}
+
 .subscribe-card__badge::before {
     content: "";
     position: absolute;
@@ -184,6 +191,58 @@
     flex: 1; /* 👈 ВОТ ЭТО КЛЮЧ */
 }
 
+.badge__absolute {
+    position: absolute;
+
+    top: -50px;
+    right: -30%;
+
+    padding: .45rem 1.2rem;
+
+    border-radius: 1.5rem;
+
+    background: var(--badge-color);
+    color: white;
+    font-family: 'Pangolin' !important;
+
+    font-size: 13px;
+    font-weight: 100;
+
+    white-space: nowrap;
+
+    box-shadow: 0 .4rem .8rem rgba(0,0,0,.15);
+
+    z-index: 5;
+
+    border: 3px solid #fff;
+}
+
+.subscribe-card {
+    position: relative;
+    overflow: visible;
+}
+
+.badge__absolute::after {
+    content: "";
+    position: absolute;
+
+    bottom: -6px;
+    left: 20px;
+
+    width: 12px;
+    height: 12px;
+
+    background: var(--badge-color);
+
+    transform: rotate(45deg);
+
+    z-index: -1;
+}
+
+.subscribe-card__badge {
+    z-index: 2;
+}
+
 @media (max-width: 900px) {
 
     .subscribes__title {
@@ -200,6 +259,10 @@
 
     .badge__title {
         font-size: 28px;
+    }
+
+    .badge__absolute {
+        display: none;
     }
 }
 

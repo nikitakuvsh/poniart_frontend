@@ -4,66 +4,67 @@ import "./MySubscribes.css";
 export default function MySubscribes() {
 
     const [subscriptions, setSubscriptions] = useState([]);
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 
     useEffect(() => {
-    const loadSubscriptions = async () => {
-        const savedSubscriptions = JSON.parse(
-            localStorage.getItem("subscriptions") || "[]"
-        );
-
-
-        if (!savedSubscriptions.length) {
-            return;
-        }
-
-
-        try {
-            const updatedSubscriptions = await Promise.all(
-                savedSubscriptions.map(async (item) => {
-
-                    const response = await fetch(
-                        `http://localhost:8000/subscriptions/${item.number}`
-                    );
-
-
-                    if (!response.ok) {
-                        return item;
-                    }
-
-
-                    return await response.json();
-
-                })
+        const loadSubscriptions = async () => {
+            const savedSubscriptions = JSON.parse(
+                localStorage.getItem("subscriptions") || "[]"
             );
 
 
-            setSubscriptions(updatedSubscriptions);
+            if (!savedSubscriptions.length) {
+                return;
+            }
 
 
-            localStorage.setItem(
-                "subscriptions",
-                JSON.stringify(updatedSubscriptions)
-            );
+            try {
+                const updatedSubscriptions = await Promise.all(
+                    savedSubscriptions.map(async (item) => {
+
+                        const response = await fetch(
+                            `http://${BACKEND_API}/subscriptions/${item.number}`
+                        );
 
 
-        } catch (error) {
-
-            console.error(
-                "Subscription error:",
-                error
-            );
+                        if (!response.ok) {
+                            return item;
+                        }
 
 
-            setSubscriptions(savedSubscriptions);
+                        return await response.json();
 
-        }
-    };
+                    })
+                );
 
 
-    loadSubscriptions();
+                setSubscriptions(updatedSubscriptions);
 
-}, []);
+
+                localStorage.setItem(
+                    "subscriptions",
+                    JSON.stringify(updatedSubscriptions)
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Subscription error:",
+                    error
+                );
+
+
+                setSubscriptions(savedSubscriptions);
+
+            }
+        };
+
+
+        loadSubscriptions();
+
+    }, []);
 
 
 

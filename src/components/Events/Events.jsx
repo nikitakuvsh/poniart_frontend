@@ -19,12 +19,13 @@ const eventImages = {
 
 export default function Events() {
     const navigate = useNavigate();
+    const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
     const [events, setEvents] = useState([]);
     const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:8000/events")
+        fetch(`http://${BACKEND_API}/events`)
             .then((res) => res.json())
             .then((data) => setEvents(data))
             .catch(console.error);
@@ -87,23 +88,35 @@ export default function Events() {
 
                                 <div className="event__content">
                                     <div className="event__info">
-                                        <span className="event__day">
-                                            {firstDate?.day || ""}
-                                        </span>
 
-                                        <span className="event__time">
-                                            {firstDate
-                                                ? `${firstDate.start_time} – ${firstDate.end_time}`
-                                                : ""}
-                                        </span>
+                                        {event.dates?.map((date) => (
+
+                                            <div
+                                                key={date.id}
+                                                className="event__date"
+                                            >
+                                                <div className='event__day--block'>
+                                                    <span className="event__day">
+                                                        {date.day}
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <span className="event__time">
+                                                        {date.start_time} – {date.end_time}
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                        ))}
+
                                     </div>
 
                                     <h3>{event.title}</h3>
 
                                     <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            setConfirmModalOpen(true);
+                                        onClick={() => {
+                                            navigate(`event/${event.id}`)
                                         }}
                                     >
                                         Записаться
