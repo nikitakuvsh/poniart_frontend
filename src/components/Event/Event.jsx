@@ -4,12 +4,13 @@ import { useEffect, useState } from 'react';
 
 import ConfirmEventModal from '../ConfirmEventModal/ConfirmEventModal';
 
-import drawingPicture from '../../images/pictures/drawing.png';
+import drawingPicture from '../../images/pictures/drawinggg.png';
 import secondDrawingPicture from '../../images/pictures/secondDrawing.png';
 import modelingImage from '../../images/pictures/modeling.png';
 import secondModelingImage from '../../images/pictures/secondModeling.png';
 
 import eventInfoImage from '../../images/pictures/eventsFlowers.png';
+import eventInfoImageSecond from '../../images/pictures/modelingPreview.png';
 
 import calendarIcon from '../../images/icons/calendar.svg';
 import twoPeopleIcon from '../../images/icons/people.svg';
@@ -28,7 +29,7 @@ const fallback = {
         expectationImage: [drawingPicture, secondDrawingPicture]
     },
     2: {
-        previewImage: eventInfoImage,
+        previewImage: eventInfoImageSecond,
         expectationImage: [modelingImage, secondModelingImage]
     }
 };
