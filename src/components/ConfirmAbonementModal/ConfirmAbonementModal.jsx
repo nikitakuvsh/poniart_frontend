@@ -31,7 +31,7 @@ export default function ConfirmAbonementModal({ plan, onClose }) {
 
 
     try {
-      const response = await fetch(`http://${BACKEND_API}/payments/create`, {
+      const response = await fetch(`https://${BACKEND_API}/payments/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
