@@ -24,7 +24,7 @@ export default function MySubscribes() {
                     savedSubscriptions.map(async (item) => {
 
                         const response = await fetch(
-                            `http://${BACKEND_API}/subscriptions/${item.number}`
+                            `https://${BACKEND_API}/subscriptions/${item.number}`
                         );
 
 

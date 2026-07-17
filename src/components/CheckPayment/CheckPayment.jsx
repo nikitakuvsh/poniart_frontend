@@ -26,7 +26,7 @@ export default function CheckPayment() {
         const getSubscription = async () => {
     try {
         const response = await fetch(
-            `http://${BACKEND_API}/subscriptions/by-payment/${paymentId}`
+            `https://${BACKEND_API}/subscriptions/by-payment/${paymentId}`
         );
 
         if (!response.ok) {
@@ -85,7 +85,7 @@ export default function CheckPayment() {
             try {
 
                 const response = await fetch(
-                    `http://${BACKEND_API}/payments/status/${paymentId}`
+                    `https://${BACKEND_API}/payments/status/${paymentId}`
                 );
 
 

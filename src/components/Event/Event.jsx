@@ -41,7 +41,7 @@ export default function Event() {
     const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
     useEffect(() => {
-        fetch(`http://${BACKEND_API}/events/${id}`)
+        fetch(`https://${BACKEND_API}/events/${id}`)
             .then(res => res.json())
             .then(setEvent)
             .catch(console.error);

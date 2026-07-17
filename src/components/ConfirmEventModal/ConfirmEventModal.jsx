@@ -52,7 +52,7 @@ export default function ConfirmEventModal({ event, onClose }) {
         try {
             setLoading(true);
 
-            const response = await fetch(`http://${BACKEND_API}/events/book`, {
+            const response = await fetch(`https://${BACKEND_API}/events/book`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
